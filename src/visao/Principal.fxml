@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPrincipal" prefHeight="800.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorPrincipal">
+   <center>
+      <AnchorPane fx:id="anchorInicial" prefHeight="750.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTextArea fx:id="taAnotacoes" focusColor="#00a9e7" labelFloat="true" layoutX="16.0" layoutY="56.0" prefHeight="359.0" prefWidth="764.0" promptText="ANOTAÇÕES" style="-fx-background-color: white;" unFocusColor="#bcb5b508" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <HBox alignment="CENTER" layoutX="16.0" layoutY="415.0" prefHeight="62.0" prefWidth="768.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <JFXButton id="BTNS" fx:id="btGravar" onAction="#gravarAnotacao" prefHeight="46.0" prefWidth="91.0" style="-fx-background-color: #00a9e7;" text="GRAVAR" textFill="WHITE" />
+                  <JFXButton id="BTNS" fx:id="btApagar" onAction="#apagarAnotacao" prefHeight="46.0" prefWidth="91.0" style="-fx-background-color: #00b56f;" text="APAGAR" textFill="WHITE" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00a9e7#00a9e7;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/drawer.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelPrincipal" alignment="CENTER" layoutX="527.0" layoutY="14.0" text="BIBLIOTECA" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <right>
+      <Pane prefHeight="750.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
+   <left>
+      <VBox prefHeight="750.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton fx:id="btInicio" alignment="BASELINE_LEFT" onAction="#inicio" prefHeight="53.0" prefWidth="304.0" text="Início" textFill="#a6a4a4">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/writing.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btAddLivro" alignment="BASELINE_LEFT" onAction="#addLivro" prefHeight="53.0" prefWidth="304.0" text="Adicionar Livro" textFill="#a6a4a4">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btBuscarLivros" alignment="BASELINE_LEFT" onAction="#buscarLivros" prefHeight="53.0" prefWidth="304.0" text="Buscar Livro" textFill="#a6a4a4">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/library.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btUsuarios" alignment="BASELINE_LEFT" onAction="#gerenciarUsuarios" prefHeight="53.0" prefWidth="304.0" text="Usuários" textFill="#a6a4a4">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/id-card.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btEmprestimos" alignment="BASELINE_LEFT" onAction="#gerenciarEmprestimos" prefHeight="53.0" prefWidth="304.0" text="Empréstimos" textFill="#a6a4a4">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/reading.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btCatalogo" alignment="BASELINE_LEFT" onAction="#gerarCatalogo" prefHeight="53.0" prefWidth="304.0" text="Catálogo" textFill="#a6a4a4">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/printer_.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btAjuda" alignment="BASELINE_LEFT" onAction="#ajuda" prefHeight="53.0" prefWidth="304.0" text="Ajuda" textFill="#a6a4a4">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/brainstorm.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btSair" alignment="BASELINE_LEFT" onAction="#sair" prefHeight="53.0" prefWidth="304.0" text="Sair" textFill="#a6a4a4">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="749.0" prefWidth="1029.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorAddLivro">
+  <children>
+      <ImageView fitHeight="75.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/book.png" />
+         </image>
+      </ImageView>
+      <GridPane alignment="CENTER" prefHeight="112.0" prefWidth="913.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" maxWidth="457.0" minWidth="10.0" prefWidth="369.0" />
+            <ColumnConstraints halignment="CENTER" maxWidth="457.0" minWidth="46.0" prefWidth="46.0" />
+            <ColumnConstraints halignment="CENTER" maxWidth="457.0" minWidth="46.0" prefWidth="46.0" />
+            <ColumnConstraints halignment="CENTER" maxWidth="457.0" minWidth="46.0" prefWidth="46.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <JFXComboBox fx:id="cbAutor" focusColor="#00d087" labelFloat="true" prefHeight="27.0" prefWidth="396.0" promptText="AUTOR" unFocusColor="#c9c9c9" />
+            <JFXComboBox fx:id="cbTitulo" focusColor="#00d087" labelFloat="true" prefHeight="27.0" prefWidth="396.0" promptText="TÍTULO" unFocusColor="#c9c9c9" GridPane.rowIndex="1" />
+            <JFXButton id="BTNS" fx:id="btAddAutor" onAction="#addAutor" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #00a9e7;" text="." textFill="#ffffff07" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton id="BTNS" fx:id="btEditAutor" onAction="#editAutor" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #00b56f;" text="." textFill="#ffffff09" GridPane.columnIndex="2">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton id="BTNS" fx:id="btDelAutor" onAction="#delAutor" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #ff5656;" text="." textFill="#ffffff04" GridPane.columnIndex="3">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton id="BTNS" fx:id="btAddTitulo" onAction="#addTitulo" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #00a9e7;" text="." textFill="#ffffff04" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton id="BTNS" fx:id="btEditTitulo" onAction="#editTitulo" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #00b56f;" text="." textFill="#ffffff09" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton id="BTNS" fx:id="btDelTitulo" onAction="#delTitulo" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #ff5656;" text="." textFill="#ffffff0a" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+         <VBox.margin>
+            <Insets left="50.0" right="50.0" />
+         </VBox.margin>
+      </GridPane>
+      <HBox alignment="CENTER" prefHeight="61.0" prefWidth="640.0" spacing="10.0">
+         <children>
+            <JFXButton id="BTNS" fx:id="btAddExemplar" onAction="#addExemplar" prefHeight="46.0" prefWidth="99.0" style="-fx-background-color: #00a9e7;" text="ADICIONAR" textFill="WHITE" />
+            <JFXButton id="BTNS" fx:id="btCancelarAdd" onAction="#cancelarAdd" prefHeight="46.0" prefWidth="99.0" style="-fx-background-color: #00b56f;" text="CANCELAR" textFill="WHITE" />
+         </children>
+      </HBox>
+      <Label fx:id="labelConfirmacao" alignment="CENTER" contentDisplay="CENTER" text="Confirmação" textAlignment="CENTER" textFill="#00b56f" visible="false">
+         <font>
+            <Font name="Telugu MN" size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+  </children>
+</VBox>
