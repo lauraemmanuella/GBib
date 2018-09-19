@@ -24,7 +24,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import persistencia.AnotacaoDAO;
@@ -73,7 +72,7 @@ public class ControladorPrincipal implements Initializable {
 	@FXML
 	private void buscarLivros() {
 		try {
-			BorderPane buscarLivro = (BorderPane) FXMLLoader.load(getClass().getResource("/visao/BuscarLivro.fxml"));
+			Parent buscarLivro = FXMLLoader.load(getClass().getResource("/visao/BuscarLivro.fxml"));
 			borderPrincipal.setCenter(buscarLivro);
 			labelPrincipal.setText("BUSCAR LIVRO");
 		} catch (IOException e) {
@@ -84,7 +83,7 @@ public class ControladorPrincipal implements Initializable {
 	@FXML
 	private void gerenciarUsuarios() {
 		try {
-			BorderPane addLivro = (BorderPane) FXMLLoader.load(getClass().getResource("/visao/Usuarios.fxml"));
+			Parent addLivro = FXMLLoader.load(getClass().getResource("/visao/Usuarios.fxml"));
 			borderPrincipal.setCenter(addLivro);
 			labelPrincipal.setText("GERENCIAR USUÁRIOS");
 		} catch (IOException e) {
@@ -95,7 +94,7 @@ public class ControladorPrincipal implements Initializable {
 	@FXML
 	private void gerenciarEmprestimos() {
 		try {
-			BorderPane emprestimo = (BorderPane) FXMLLoader.load(getClass().getResource("/visao/Emprestimo.fxml"));
+			Parent emprestimo = FXMLLoader.load(getClass().getResource("/visao/Emprestimo.fxml"));
 			borderPrincipal.setCenter(emprestimo);
 			labelPrincipal.setText("GERENCIAR EMPRÉSTIMOS");
 		} catch (IOException e) {
@@ -114,27 +113,27 @@ public class ControladorPrincipal implements Initializable {
 		
 		if(file != null) {
 			Document document = new Document();
-	        PdfWriter.getInstance(document, new FileOutputStream(file));
-	        document.open();
-	
-	        LocalDate hoje = LocalDate.now();
-	        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	        String data = hoje.format(formatador); 
-	        
-	        Paragraph p1 = new Paragraph("Catálogo Biblioteca\nGerado em "+ data+"\n\n");
-	        p1.setAlignment(Element.ALIGN_CENTER);
-	        
-	        document.add(p1);
-	        document.add(exemplarDAO.geraTabela());
-	        
-	        document.close();
-        }
+                        PdfWriter.getInstance(document, new FileOutputStream(file));
+                        document.open();
+
+                        LocalDate hoje = LocalDate.now();
+                        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        String data = hoje.format(formatador); 
+
+                        Paragraph p1 = new Paragraph("Catálogo Biblioteca\nGerado em "+ data+"\n\n");
+                        p1.setAlignment(Element.ALIGN_CENTER);
+
+                        document.add(p1);
+                        document.add(exemplarDAO.geraTabela());
+
+                        document.close();
+                 }
 	}
 
 	@FXML
 	private void ajuda() {
 		try {
-			VBox ajuda = (VBox) FXMLLoader.load(getClass().getResource("/visao/Ajuda.fxml"));
+			Parent ajuda = FXMLLoader.load(getClass().getResource("/visao/Ajuda.fxml"));
 			borderPrincipal.setCenter(ajuda);
 			labelPrincipal.setText("AJUDA");
 		} catch (IOException e) {
