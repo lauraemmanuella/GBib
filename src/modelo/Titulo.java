@@ -57,6 +57,7 @@ public class Titulo implements Comparable<Titulo> {
 		this.autor = autor;
 	}
 	
+        @Override
 	public String toString() {
 		return nomeTitulo;
 	}

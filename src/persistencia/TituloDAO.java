@@ -10,7 +10,7 @@ import modelo.Autor;
 import modelo.Titulo;
 
 public class TituloDAO {
-	private Conexao con = new Conexao();
+	private final Conexao con = new Conexao();
 	
 	private final String INSERTTITULO = "INSERT INTO TITULO (NOME_TITULO, COD_TITULO, ID_AUTOR) VALUES (?,?,?)";
 	private final String UPDATETITULO = "UPDATE TITULO SET NOME_TITULO = ? WHERE NOME_TITULO = ?";
@@ -42,7 +42,6 @@ public class TituloDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -69,7 +68,6 @@ public class TituloDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -95,7 +93,6 @@ public class TituloDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -132,7 +129,7 @@ public class TituloDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
+                     System.out.println(e.getMessage());
 		}
 		
 		Collections.sort(lista);
@@ -162,12 +159,9 @@ public class TituloDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
+                     System.out.println(e.getMessage());
 		}
-		if(qtd == 0)
-			return true;
-		else
-			return false;
+            return qtd == 0;
 	}
 	
 	public String codTitulo(String nomeAutor) {
@@ -192,7 +186,7 @@ public class TituloDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
+                     System.out.println(e.getMessage());
 		}
 		return cod;
 	}

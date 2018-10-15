@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AnotacaoDAO {
-	private Conexao con = new Conexao();
+	private final Conexao con = new Conexao();
 	
 	private final String INSERTANOTACAO = "INSERT INTO ANOTACAO (TEXTO) VALUES (?)";
 	private final String DELETEANOTACAO = "DELETE FROM ANOTACAO";
@@ -35,7 +35,6 @@ public class AnotacaoDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -62,7 +61,6 @@ public class AnotacaoDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -87,7 +85,7 @@ public class AnotacaoDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 		return lista;

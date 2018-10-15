@@ -9,7 +9,7 @@ import java.util.Collections;
 import modelo.Usuario;
 
 public class UsuarioDAO {
-	private Conexao con = new Conexao();
+	private final Conexao con = new Conexao();
 	
 	private final String INSERTUSUARIO = "INSERT INTO USUARIO (NOME_USUARIO, TEL_USUARIO, EMAIL_USUARIO) VALUES (?,?,?)";
 	private final String UPDATEUSUARIO = "UPDATE USUARIO SET NOME_USUARIO = ?, TEL_USUARIO = ?, EMAIL_USUARIO = ? WHERE ID_USUARIO = ?";
@@ -39,7 +39,6 @@ public class UsuarioDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -68,7 +67,6 @@ public class UsuarioDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -94,7 +92,6 @@ public class UsuarioDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -120,7 +117,7 @@ public class UsuarioDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
+                     System.out.println(e.getMessage());
 		}
 		Collections.sort(lista);
 		return lista;
@@ -150,7 +147,7 @@ public class UsuarioDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
+                     System.out.println(e.getMessage());
 		}
 		Collections.sort(lista);
 		return lista;

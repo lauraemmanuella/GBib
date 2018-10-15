@@ -9,7 +9,7 @@ import java.util.Collections;
 import modelo.Autor;
 
 public class AutorDAO {
-	private Conexao con = new Conexao();
+	private final Conexao con = new Conexao();
 	
 	private final String INSERTAUTOR = "INSERT INTO AUTOR (NOME_AUTOR, COD_AUTOR) VALUES (?,?)";
 	private final String UPDATEAUTOR = "UPDATE AUTOR SET NOME_AUTOR = ? WHERE NOME_AUTOR = ?";
@@ -39,7 +39,6 @@ public class AutorDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -66,7 +65,6 @@ public class AutorDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -92,7 +90,6 @@ public class AutorDAO {
 			return true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 
 		}
@@ -118,7 +115,6 @@ public class AutorDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 		Collections.sort(lista);
 		return lista;
@@ -146,7 +142,6 @@ public class AutorDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 		return cod;
 	}
@@ -173,11 +168,7 @@ public class AutorDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		if(qtd == 0)
-			return true;
-		else
-			return false;
+            return qtd == 0;
 	}
 }

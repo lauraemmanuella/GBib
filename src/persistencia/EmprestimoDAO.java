@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import modelo.Emprestimo;
 
 public class EmprestimoDAO {
-	private Conexao con = new Conexao();
+	private final Conexao con = new Conexao();
 	
 	private final String INSERTEMPRESTIMO = "INSERT INTO EMPRESTIMO (ID_USUARIO, ID_EXEMPLAR, DATA_EMPRESTIMO, DATA_DEVOLUCAO) VALUES (?,?, ?, ?)";
 	private final String DELETEEMPRESTIMO = "DELETE FROM EMPRESTIMO WHERE ID_EMPRESTIMO = ?";
@@ -41,7 +41,6 @@ public class EmprestimoDAO {
 			return true;
 
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
 			return false;
 
 		}
@@ -67,7 +66,6 @@ public class EmprestimoDAO {
 			return true;
 
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
 			return false;
 
 		}
@@ -94,7 +92,7 @@ public class EmprestimoDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+                    System.out.println(sqle.getMessage());
 		}
 		
 		return lista;
@@ -125,7 +123,7 @@ public class EmprestimoDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+                     System.out.println(sqle.getMessage());
 		}
 
 		return lista;
@@ -156,7 +154,7 @@ public class EmprestimoDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+                     System.out.println(sqle.getMessage());
 		}
 
 		return lista;
@@ -187,7 +185,7 @@ public class EmprestimoDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+                     System.out.println(sqle.getMessage());
 		}
 
 		return lista;
@@ -218,7 +216,7 @@ public class EmprestimoDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+                     System.out.println(sqle.getMessage());
 		}
 
 		return lista;

@@ -8,28 +8,19 @@ import java.sql.*; //importa todas as classes da api java.sql
  */
 public class Conexao {
 	//ATRIBUTOS DA CLASSE
-	private String usuario;			//nome do usuario do banco
-	private String senha;			//senha do banco  
-	private String caminho;			//caminho para o banco
-	private String driverjdbc;		//driver jdbc
-	private Connection conexao;		//objeto do tipo Connection
-
-	//METODO CONSTRUTOR
-	public Conexao() {
-		this.caminho = "jdbc:h2:~/GBib/biblioteca;INIT=runscript from '~/GBib/createBiblioteca.sql'";
-		this.usuario = "admin"; 
-		this.senha = "admin";
-		this.driverjdbc = "org.h2.Driver";
-	}
+	private static final String USUARIO = "admin";	
+	private static final String SENHA = "admin";
+	private static final String CAMINHO = "jdbc:h2:~/GBib/biblioteca;INIT=runscript from '~/GBib/createBiblioteca.sql'";
+	private static final String DRIVER = "org.h2.Driver";
+	private Connection conexao;		
 	
 	//METODO QUE EFETUA A CONEXAO COM O BANCO DE DADOS
 	public void conecta() {
 		try {
-			Class.forName(driverjdbc); //Carrega o driver (inicializa um objeto da classe org.postgresql.Driver) 
-			conexao = DriverManager.getConnection(caminho, usuario,senha); //Cria a conexao
-		} catch (Exception e) {
+			Class.forName(DRIVER); //Carrega o driver (inicializa um objeto da classe org.postgresql.Driver) 
+			conexao = DriverManager.getConnection(CAMINHO, USUARIO,SENHA); //Cria a conexao
+		} catch (ClassNotFoundException | SQLException e) {
 			System.err.println(e);
-			e.printStackTrace();
 		}
 	}
 
@@ -39,7 +30,6 @@ public class Conexao {
 			conexao.close();//fecha a conexao
 		} catch (SQLException ex) {
 			System.err.println(ex);
-			ex.printStackTrace();
 		}
 	}
 

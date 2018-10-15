@@ -17,7 +17,7 @@ import modelo.Exemplar;
 import modelo.Titulo;
 
 public class ExemplarDAO {
-	private Conexao con = new Conexao();
+	private final Conexao con = new Conexao();
 	
 	private final String INSERTEXEMPLAR = "INSERT INTO EXEMPLAR (COD_EXEMPLAR, ID_TITULO) VALUES (?,?)";
 	private final String DELETEEXEMPLAR = "DELETE FROM EXEMPLAR WHERE COD_EXEMPLAR = ?";
@@ -48,7 +48,6 @@ public class ExemplarDAO {
 			return true;
 
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
 			return false;
 
 		}
@@ -74,7 +73,6 @@ public class ExemplarDAO {
 			return true;
 
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
 			return false;
 
 		}
@@ -117,7 +115,7 @@ public class ExemplarDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+                     System.out.println(sqle.getMessage());
 		}
 		
 		Collections.sort(lista);
@@ -146,7 +144,7 @@ public class ExemplarDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
+                     System.out.println(e.getMessage());
 		}
 		return cod;
 	}
@@ -158,7 +156,7 @@ public class ExemplarDAO {
 		try {
 			table.setWidths(new int[]{1, 3, 2});
 		} catch (DocumentException e) {
-			e.printStackTrace();
+                     System.out.println(e.getMessage());
 		}
 		table.addCell(new PdfPCell(new Phrase("CÓDIGO")));
 		table.addCell(new PdfPCell(new Phrase("TÍTULO")));
@@ -198,7 +196,7 @@ public class ExemplarDAO {
 			// DESCONECTA
 			con.desconecta();
 		} catch (SQLException e) {
-			e.printStackTrace();
+                     System.out.println(e.getMessage());
 		}
 		return id;
 	}

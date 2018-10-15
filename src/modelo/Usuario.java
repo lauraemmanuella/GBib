@@ -59,6 +59,7 @@ public class Usuario implements Comparable<Usuario>{
 		this.emailUsuario = emailUsuario;
 	}
 
+        @Override
 	public String toString() {
 		return nomeUsuario;
 	}
